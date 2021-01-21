@@ -1,1 +1,1 @@
-# -full-stack-i18n-tutorial-angular-net-core-
+Full-stack i18n with Angular and .NET Core
