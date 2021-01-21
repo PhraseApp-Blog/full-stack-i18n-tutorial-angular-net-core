@@ -1,0 +1,17 @@
+<h1 class="display-4">Mercedes-Benz</h1>
+<p class="lead">
+  {{ "subtitle" | transloco }}
+</p>
+<hr />
+
+<div class="card-deck">
+  <div class="card" *ngFor="let car of carData">
+    <img class="card-img-top" src="{{ car.imageUrl }}" alt="car image" />
+    <div class="card-body">
+      <h5 class="card-title">{{ car.modalName }}</h5>
+      <p class="card-text">
+        {{ car.productDescription }}
+      </p>
+    </div>
+  </div>
+</div>
