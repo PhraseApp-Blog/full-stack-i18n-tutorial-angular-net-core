@@ -24,11 +24,12 @@ namespace ngNetCoreI18n.DataAccess
             foreach (Car car in carDetails)
             {
                 CarDto item = new CarDto();
+                var carData = db.ProductTranslations.FirstOrDefault(x => x.CarId == car.CarId && x.Culture == culture);
 
                 item.CarId = car.CarId;
-                item.ModalName = car.ModalName;
+                item.ModalName = carData?.ProductName;
                 item.ImageUrl = car.ImageUrl;
-                item.ProductDescription = db.ProductTranslations.FirstOrDefault(x => x.CarId == car.CarId && x.Culture == culture)?.ProductDescription;
+                item.ProductDescription = carData?.ProductDescription;
 
                 lstCar.Add(item);
             }

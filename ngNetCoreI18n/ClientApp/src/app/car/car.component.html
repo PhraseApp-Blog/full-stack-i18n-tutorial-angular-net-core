@@ -1,6 +1,6 @@
-<h1 class="display-4">Mercedes-Benz</h1>
+<h1 class="display-4">{{ "page.title" | transloco }}</h1>
 <p class="lead">
-  {{ "subtitle" | transloco }}
+  {{ "page.subtitle" | transloco }}
 </p>
 <hr />
 
@@ -9,6 +9,7 @@
     <img class="card-img-top" src="{{ car.imageUrl }}" alt="car image" />
     <div class="card-body">
       <h5 class="card-title">{{ car.modalName }}</h5>
+      <hr />
       <p class="card-text">
         {{ car.productDescription }}
       </p>

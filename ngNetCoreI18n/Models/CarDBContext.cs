@@ -1,13 +1,13 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-
-#nullable disable
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ngNetCoreI18n.Models
 {
     public partial class CarDBContext : DbContext
     {
+        public CarDBContext()
+        {
+        }
+
         public CarDBContext(DbContextOptions<CarDBContext> options)
             : base(options)
         {
@@ -53,8 +53,11 @@ namespace ngNetCoreI18n.Models
 
                 entity.Property(e => e.ProductDescription)
                     .IsRequired()
-                    .HasMaxLength(1024)
-                    .IsUnicode(false);
+                    .HasMaxLength(1024);
+
+                entity.Property(e => e.ProductName)
+                    .IsRequired()
+                    .HasMaxLength(200);
             });
 
             OnModelCreatingPartial(modelBuilder);

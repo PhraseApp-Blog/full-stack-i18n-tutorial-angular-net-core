@@ -4,6 +4,7 @@
     {
         public int? CarId { get; set; }
         public string Culture { get; set; }
+        public string ProductName { get; set; }
         public string ProductDescription { get; set; }
     }
 }

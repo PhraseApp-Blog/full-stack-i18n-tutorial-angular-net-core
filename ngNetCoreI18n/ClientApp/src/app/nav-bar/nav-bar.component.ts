@@ -19,8 +19,7 @@ export class NavBarComponent {
 
   languageList = [
     { code: 'en', label: 'English' },
-    { code: 'fr', label: 'Français' },
-    { code: 'de', label: 'Deutsch' },
+    { code: 'hi', label: 'Hindi' },
   ];
 
   constructor(
