@@ -17,13 +17,13 @@ namespace ngNetCoreI18n.DataAccess
 
         public IEnumerable<CarDto> GetAllCarData(string culture)
         {
-            List<CarDto> lstCar = new List<CarDto>();
+            List<CarDto> lstCar = new();
 
             List<Car> carDetails = db.Cars?.ToList();
 
             foreach (Car car in carDetails)
             {
-                CarDto item = new CarDto();
+                CarDto item = new();
                 var carData = db.ProductTranslations.FirstOrDefault(x => x.CarId == car.CarId && x.Culture == culture);
 
                 item.CarId = car.CarId;
