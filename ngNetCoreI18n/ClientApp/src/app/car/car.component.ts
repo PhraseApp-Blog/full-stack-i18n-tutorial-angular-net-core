@@ -11,7 +11,7 @@ export class CarComponent implements OnInit {
   public carData: Car[];
   private culture: string;
 
-  constructor(private carService: CarService) {}
+  constructor(private carService: CarService) { }
 
   ngOnInit(): void {
     this.carService.currentCulture.subscribe((currentCulture) => {
