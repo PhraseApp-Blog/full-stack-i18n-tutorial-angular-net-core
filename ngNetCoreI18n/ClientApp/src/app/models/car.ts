@@ -1,6 +1,6 @@
 export class Car {
   carId: number;
-  modalName: string;
+  modelName: string;
   imageUrl: string;
-  productDescription: string;
+  carDescription: string;
 }

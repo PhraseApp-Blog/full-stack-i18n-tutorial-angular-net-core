@@ -1,4 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+
+#nullable disable
 
 namespace ngNetCoreI18n.Models
 {
@@ -14,7 +18,7 @@ namespace ngNetCoreI18n.Models
         }
 
         public virtual DbSet<Car> Cars { get; set; }
-        public virtual DbSet<ProductTranslation> ProductTranslations { get; set; }
+        public virtual DbSet<CarTranslation> CarTranslations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,17 +36,21 @@ namespace ngNetCoreI18n.Models
                     .IsUnicode(false)
                     .HasColumnName("ImageURL");
 
-                entity.Property(e => e.ModalName)
+                entity.Property(e => e.ModelName)
                     .IsRequired()
                     .HasMaxLength(128)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<ProductTranslation>(entity =>
+            modelBuilder.Entity<CarTranslation>(entity =>
             {
                 entity.HasNoKey();
 
-                entity.ToTable("Product_Translations");
+                entity.ToTable("Car_Translations");
+
+                entity.Property(e => e.CarDescription)
+                    .IsRequired()
+                    .HasMaxLength(1024);
 
                 entity.Property(e => e.CarId).HasColumnName("Car_ID");
 
@@ -51,11 +59,7 @@ namespace ngNetCoreI18n.Models
                     .HasMaxLength(6)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ProductDescription)
-                    .IsRequired()
-                    .HasMaxLength(1024);
-
-                entity.Property(e => e.ProductName)
+                entity.Property(e => e.ModelName)
                     .IsRequired()
                     .HasMaxLength(200);
             });
